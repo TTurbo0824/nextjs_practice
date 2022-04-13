@@ -1,13 +1,10 @@
-import Head from 'next/head';
+import HeadInfo from './HeadInfo';
 import Nav from './Nav';
 
 const Layout = ({children}) => {
   return (
     <>
-      <Head>
-        <title>My Blog</title>
-        <meta keyword="powered by next.js"></meta>
-      </Head>
+      <HeadInfo />
       <Nav />
       <div>{children}</div>
     </>
