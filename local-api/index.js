@@ -2,10 +2,11 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const PORT = 8080;
+const {posts} = require('./data.js');
 
 app.use(cors());
 app.get('/api/post', (req, res) => {
-  res.json('');
+  res.json(posts);
 });
 
 app.listen(PORT, () => console.log(`server is running on ${PORT}`));
