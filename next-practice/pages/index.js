@@ -6,31 +6,16 @@ export default function Home({posts}) {
     <div>
       <h1>Welcome!</h1>
       <ul>
-        {posts.map((post) => (
-          <li>{post.title}</li>
+        {posts.map((post, id) => (
+          <li key={id}>{post.title}</li>
         ))}
       </ul>
     </div>
   );
 }
 
-export const getServerSideProps = async () => {
-  const res = await fetch(
-    'https://jsonplaceholder.typicode.com/posts?_start=0&_end=10'
-  );
-  const posts = await res.json();
-
-  return {
-    props: {
-      posts,
-    },
-  };
-};
-
-// export const getStaticProps = async () => {
-//   const res = await fetch(
-//     'https://jsonplaceholder.typicode.com/posts?_start=0&_end=10'
-//   );
+// export const getServerSideProps = async () => {
+//   const res = await fetch('http://localhost:8080/api/post');
 //   const posts = await res.json();
 
 //   return {
@@ -39,3 +24,15 @@ export const getServerSideProps = async () => {
 //     },
 //   };
 // };
+
+export const getStaticProps = async () => {
+  const res = await fetch('http://localhost:8080/api/post');
+  const posts = await res.json();
+
+  return {
+    props: {
+      posts,
+    },
+    revalidate: 20
+  };
+};
