@@ -1,1 +1,1 @@
-# vuejs_practice
+# nextjs_practice
