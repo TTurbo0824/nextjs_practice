@@ -1,0 +1,10 @@
+.photos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.photos div {
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
