@@ -33,6 +33,7 @@ export const getStaticProps = async () => {
     props: {
       posts,
     },
+    // 처음 접속이 일어난 후 20초 지난 시점부터 static 파일을 새롭게 생성할 수 있도록 함
     revalidate: 20
   };
 };
