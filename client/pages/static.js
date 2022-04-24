@@ -1,11 +1,13 @@
 import {incrementCounter} from '../store/counter/action';
 import {wrapper} from '../store/store';
+import Page from '../components/Page';
 
-const Counter = (props) => {
-  return <div>counter</div>;
+const Static = (props) => {
+  return <Page title="Static Page" linkTo="/server" />;
 };
+
 export const getStaticProps = wrapper.getStaticProps((store) => {
   store.dispatch(incrementCounter());
 });
 
-export default Counter;
+export default Static;

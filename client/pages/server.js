@@ -1,8 +1,11 @@
 import {addUser} from '../store/users/action';
 import {incrementCounter} from '../store/counter/action';
 import {wrapper} from '../store/store';
+import Page from '../components/Page';
 
-const User = () => {};
+const Server = (props) => {
+  return <Page title="Server Page" linkTo="/static" />;
+};
 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async () => {
@@ -14,4 +17,5 @@ export const getServerSideProps = wrapper.getServerSideProps(
     store.dispatch(addUser(`${data.first_name} ${data.last_name}`));
   }
 );
-export default User;
+
+export default Server;
