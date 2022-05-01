@@ -1,4 +1,4 @@
-import {incrementCounter} from '../store/counter/action';
+import {increment} from '../store/counterSlice';
 import {wrapper} from '../store/store';
 import Page from '../components/Page';
 
@@ -7,7 +7,7 @@ const Static = (props) => {
 };
 
 export const getStaticProps = wrapper.getStaticProps((store) => {
-  store.dispatch(incrementCounter());
+  store.dispatch(increment());
 });
 
 export default Static;
